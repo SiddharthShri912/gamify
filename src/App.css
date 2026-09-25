@@ -7,8 +7,11 @@ body {
   background: #101010;
   color: #f5f5f5;
   font-family:
-    -apple-system, BlinkMacSystemFont, "SF Pro Display",
-    "Segoe UI", sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
 }
 
 button {
@@ -17,36 +20,37 @@ button {
 
 button:disabled {
   cursor: default;
-  opacity: 0.5;
+  opacity: 0.45;
+}
+
+button {
+  cursor: pointer;
 }
 
 .app {
-  width: min(900px, calc(100% - 32px));
+  width: min(920px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 48px 0 80px;
+  padding: 42px 0 80px;
 }
+
+/* HEADER */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 25px;
 }
 
 h1 {
   margin: 0;
   font-size: 38px;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
 }
 
 header p {
   margin: 6px 0 0;
-  color: #888;
-}
-
-h2 {
-  font-size: 18px;
-  margin: 0 0 14px;
+  color: #777;
 }
 
 .player-level {
@@ -55,13 +59,66 @@ h2 {
 
 .player-level span {
   display: block;
-  font-size: 11px;
-  color: #777;
+  color: #666;
+  font-size: 10px;
   letter-spacing: 2px;
 }
 
 .player-level strong {
-  font-size: 32px;
+  font-size: 34px;
+}
+
+/* NAV */
+
+.tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 25px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.tabs button {
+  border: 1px solid #292929;
+  background: #171717;
+  color: #888;
+  padding: 9px 13px;
+  border-radius: 9px;
+  white-space: nowrap;
+}
+
+.tabs button:hover {
+  color: #ddd;
+}
+
+.tabs button.active {
+  background: #eaeaea;
+  color: #111;
+  border-color: #eaeaea;
+}
+
+/* HEADINGS */
+
+h2 {
+  margin: 0 0 15px;
+  font-size: 18px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin-bottom: 4px;
+}
+
+.section-heading p {
+  color: #777;
+  margin: 0;
+  font-size: 13px;
 }
 
 /* OVERVIEW */
@@ -70,7 +127,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 17px;
 }
 
 .overview > div {
@@ -82,7 +139,7 @@ h2 {
 
 .overview span {
   display: block;
-  color: #888;
+  color: #777;
   font-size: 13px;
   margin-bottom: 5px;
 }
@@ -108,9 +165,10 @@ h2 {
 .overall-progress div {
   height: 100%;
   background: #f5f5f5;
+  border-radius: 99px;
 }
 
-/* PANELS */
+/* PANEL */
 
 .panel {
   background: #191919;
@@ -122,15 +180,11 @@ h2 {
 
 /* TODAY */
 
-.today-panel {
-  margin-bottom: 32px;
-}
-
 .today-quest {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   padding: 15px 0;
   border-bottom: 1px solid #292929;
 }
@@ -141,8 +195,8 @@ h2 {
 
 .today-quest strong {
   display: block;
-  color: #ddd;
   margin-bottom: 5px;
+  color: #ddd;
 }
 
 .today-quest span {
@@ -153,6 +207,33 @@ h2 {
 .quest-actions {
   display: flex;
   gap: 7px;
+}
+
+/* BUTTONS */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.actions button,
+.today-quest button {
+  background: #242424;
+  color: #eee;
+  border: 1px solid #363636;
+  border-radius: 9px;
+  padding: 10px 13px;
+}
+
+.actions button:hover,
+.today-quest button:hover {
+  background: #303030;
+}
+
+.actions button span {
+  color: #777;
+  margin-left: 7px;
 }
 
 /* SKILLS */
@@ -195,8 +276,8 @@ h2 {
   height: 7px;
   background: #303030;
   border-radius: 99px;
-  margin: 22px 0 10px;
   overflow: hidden;
+  margin: 22px 0 10px;
 }
 
 .progress-bar div {
@@ -206,8 +287,8 @@ h2 {
 }
 
 .skill-xp {
-  font-size: 13px;
   color: #ddd;
+  font-size: 13px;
 }
 
 .skill-xp span {
@@ -216,14 +297,14 @@ h2 {
   font-size: 11px;
 }
 
-/* QUESTS */
+/* WEEKLY QUESTS */
 
 .quest {
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
-  border-bottom: 1px solid #292929;
   color: #ccc;
+  border-bottom: 1px solid #292929;
 }
 
 .quest:last-child {
@@ -235,53 +316,265 @@ h2 {
   font-size: 13px;
 }
 
-/* XP BUTTONS */
+/* DSA */
 
-.actions {
+.dsa-stats {
+  text-align: right;
+}
+
+.dsa-stats strong {
+  display: block;
+  font-size: 25px;
+}
+
+.dsa-stats span {
+  color: #777;
+  font-size: 12px;
+}
+
+.dsa-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.dsa-summary div {
+  background: #191919;
+  border: 1px solid #292929;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.dsa-summary strong {
+  display: block;
+  font-size: 22px;
+}
+
+.dsa-summary span {
+  color: #777;
+  font-size: 12px;
+}
+
+.dsa-tree {
+  margin-top: 10px;
+}
+
+.pattern-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.actions button,
-.today-quest button {
-  background: #242424;
+.pattern {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #292929;
+  background: #191919;
   color: #eee;
-  border: 1px solid #363636;
-  border-radius: 9px;
-  padding: 10px 13px;
-  cursor: pointer;
 }
 
-.actions button:hover,
-.today-quest button:hover {
-  background: #303030;
+.pattern:hover {
+  background: #202020;
 }
 
-.actions button span {
-  color: #888;
-  margin-left: 7px;
+.pattern.mastered {
+  border-color: #555;
+  background: #1e1e1e;
+}
+
+.pattern-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #292929;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.pattern.mastered .pattern-number {
+  background: #eee;
+  color: #111;
+}
+
+.pattern strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pattern span {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+.pattern-status {
+  color: #777;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.pattern.mastered .pattern-status {
+  color: #ddd;
+}
+
+.tree-line {
+  width: 1px;
+  height: 18px;
+  background: #333;
+}
+
+/* HISTORY */
+
+.history {
+  background: #191919;
+  border: 1px solid #292929;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #292929;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-icon {
+  font-size: 20px;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.history-info strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.history-info span {
+  color: #666;
+  font-size: 11px;
+}
+
+.history-xp {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.empty {
+  background: #191919;
+  border: 1px solid #292929;
+  border-radius: 14px;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.empty div {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.empty strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.empty span {
+  color: #666;
+  font-size: 13px;
+}
+
+/* ACHIEVEMENTS */
+
+.achievement-count {
+  color: #777;
+  font-size: 14px;
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.achievement {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  background: #191919;
+  border: 1px solid #292929;
+  border-radius: 13px;
+  opacity: 0.4;
+}
+
+.achievement.unlocked {
+  opacity: 1;
+}
+
+.achievement-icon {
+  font-size: 25px;
+  width: 34px;
+  text-align: center;
+}
+
+.achievement strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.achievement span {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+.achievement-xp {
+  margin-left: auto;
+  color: #777;
+  font-size: 11px;
+  white-space: nowrap;
 }
 
 /* RESET */
 
 .reset-button {
   display: block;
-  margin: 24px auto 0;
+  margin: 25px auto 0;
   border: none;
   background: transparent;
-  color: #555;
-  cursor: pointer;
-  font-size: 12px;
+  color: #444;
+  font-size: 11px;
 }
 
 .reset-button:hover {
-  color: #999;
+  color: #888;
 }
 
 /* MOBILE */
 
 @media (max-width: 700px) {
+  .app {
+    width: min(100% - 24px, 920px);
+    padding-top: 28px;
+  }
+
   .skills {
     grid-template-columns: 1fr;
   }
@@ -290,8 +583,12 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  header {
-    align-items: flex-start;
+  .dsa-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .achievements {
+    grid-template-columns: 1fr;
   }
 
   .today-quest {
@@ -301,5 +598,17 @@ h2 {
 
   .quest-actions {
     width: 100%;
+  }
+
+  .pattern {
+    grid-template-columns: 35px 1fr;
+  }
+
+  .pattern-status {
+    display: none;
+  }
+
+  header {
+    align-items: flex-start;
   }
 }
